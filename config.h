@@ -7,15 +7,15 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "terminus:size=11" };
 static const char dmenufont[]       = "terminus:size=11";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#47855d";
+static const char col_gray1[]       = "#000000"; /* background */
+static const char col_gray2[]       = "#202020"; /* NormBorder */
+static const char col_gray3[]       = "#ffffff"; /* foreground */
+static const char col_gray4[]       = "#000000";
+static const char col_cyan[]        = "#66de7d"; /* background sel */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_cyan, col_gray1,  col_cyan  },
 };
 
 /* tagging */
@@ -27,14 +27,14 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "qbittorrent",     NULL,       NULL,       0,            1,           -1 },
+	{ "qbittorrent",         NULL,       NULL,       0,            1,           -1 },
 	{ "icecat",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -100,12 +100,17 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	/* CUSTOM BINDINGS */
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY, 			XK_F8,     spawn,          SHCMD("pamixer -i 3") },
-	{ MODKEY, 			XK_F7, 	   spawn,          SHCMD("pamixer -d 3") },
+	{ MODKEY, 			XK_F8,     spawn,          SHCMD("pamixer -i 3")   },
+	{ MODKEY, 			XK_F7, 	   spawn,          SHCMD("pamixer -d 3")   },
 	{ MODKEY, 			XK_F2,     spawn,          SHCMD("xbacklight -10") },
 	{ MODKEY, 			XK_F3,     spawn,	   SHCMD("xbacklight +10") },
-	{ MODKEY,			XK_r,	   spawn,	   SHCMD("st -e ranger") },
+	{ MODKEY,			XK_r,	   spawn,	   SHCMD("st -e ranger")   },
+	{ MODKEY,			XK_c,	   spawn,	   SHCMD("st -e calcurse") },
+	/* mpc/ncmpcpp */
+	{ MODKEY,			XK_n,	   spawn,	   SHCMD("st -e ncmpcpp")  },
+	{ MODKEY,			XK_p,      spawn,	   SHCMD("mpc toggle")	   },	
 };
 
 /* button definitions */
