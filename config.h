@@ -69,8 +69,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	/*{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },*/
-	/*{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },*/
+	/*{ MODKEY|ShiftMask            XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask            XK_d,      incnmaster,     {.i = -1 } },*/
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
@@ -102,15 +102,14 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	/* CUSTOM BINDINGS */
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY, 			XK_F8,     spawn,          SHCMD("pamixer -i 3")   },
-	{ MODKEY, 			XK_F7, 	   spawn,          SHCMD("pamixer -d 3")   },
-	{ MODKEY, 			XK_F2,     spawn,          SHCMD("xbacklight -10") },
-	{ MODKEY, 			XK_F3,     spawn,	   SHCMD("xbacklight +10") },
-	{ MODKEY,			XK_r,	   spawn,	   SHCMD("st -e ranger")   },
-	{ MODKEY,			XK_c,	   spawn,	   SHCMD("st -e calcurse") },
+	{ MODKEY,			XK_a,	   spawn,	   SHCMD("st -e alsamixer") },
+	{ MODKEY, 			XK_F2,     spawn,          SHCMD("xbacklight -10")  },
+	{ MODKEY, 			XK_F3,     spawn,	   SHCMD("xbacklight +10")  },
+	{ MODKEY,			XK_r,	   spawn,	   SHCMD("st -e ranger")    },
+	{ MODKEY,			XK_c,	   spawn,	   SHCMD("st -e calcurse")  },
 	/* mpc/ncmpcpp */
-	{ MODKEY,			XK_n,	   spawn,	   SHCMD("st -e ncmpcpp")  },
-	{ MODKEY,			XK_p,      spawn,	   SHCMD("mpc toggle")	   },	
+	{ MODKEY,			XK_n,	   spawn,	   SHCMD("st -e ncmpcpp")   },
+	{ MODKEY,			XK_p,      spawn,	   SHCMD("mpc toggle")	    },	
 };
 
 /* button definitions */
