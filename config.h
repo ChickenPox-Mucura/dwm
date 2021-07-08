@@ -5,13 +5,13 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "terminus:size=11" };
-static const char dmenufont[]       = "terminus:size=11";
-static const char col_gray1[]       = "#000000"; /* background */
+static const char *fonts[]          = { "lucida sans typewriter:size=9:antialias=false:autohint=false" };
+static const char dmenufont[]       = "lucida sans typewriter:size=9:antialias=false:autohint=false";
+static const char col_gray1[]       = "#EEEEA7"; /* background */
 static const char col_gray2[]       = "#202020"; /* NormBorder */
-static const char col_gray3[]       = "#ffffff"; /* foreground */
+static const char col_gray3[]       = "#555555"; /* foreground */
 static const char col_gray4[]       = "#000000";
-static const char col_cyan[]        = "#66de7d"; /* background sel */
+static const char col_cyan[]        = "#999957"; /* background sel */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -106,7 +106,7 @@ static Key keys[] = {
 	{ MODKEY, 			XK_F2,     spawn,          SHCMD("xbacklight -10")  },
 	{ MODKEY, 			XK_F3,     spawn,	   SHCMD("xbacklight +10")  },
 	{ MODKEY,			XK_r,	   spawn,	   SHCMD("st -e ranger")    },
-	{ MODKEY,			XK_c,	   spawn,	   SHCMD("st -e calcurse")  },
+	{ MODKEY,			XK_c,	   spawn,	   SHCMD("st -e tudu")  },
 	/* mpc/ncmpcpp */
 	{ MODKEY,			XK_n,	   spawn,	   SHCMD("st -e ncmpcpp")   },
 	{ MODKEY,			XK_p,      spawn,	   SHCMD("mpc toggle")	    },	
